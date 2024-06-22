@@ -4,7 +4,7 @@ import React, { useContext, useState } from "react";
 import { ProductContext } from "../context/ProductContext";
 
 function AddProduct() {
-  const { product, addProduct } = useContext(ProductContext);
+  const { product, addProduct, deleteProducts } = useContext(ProductContext);
 
   const [prod, setProd] = useState({
     name: "",
@@ -13,6 +13,10 @@ function AddProduct() {
     category: "",
     img: undefined,
   });
+
+  const deleteProduct = (id) => {
+    deleteProducts(id);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -74,6 +78,25 @@ function AddProduct() {
                 <div className="header">{prod.name}</div>
                 <div className="meta price">$ {prod.price}</div>
                 <div className="meta">{prod.category}</div>
+              </div>
+              <div className="custom_btns">
+                <button
+                  onClick={() => deleteProduct(prod.id)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "100px",
+                    border: "1px solid red",
+                    borderRadius: "10px",
+                    padding: "5px 10px",
+                    backgroundColor: "red",
+                    color: "white",
+                    margin: "10px",
+                  }}
+                >
+                  Delete
+                </button>
               </div>
             </div>
           </div>

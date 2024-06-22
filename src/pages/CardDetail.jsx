@@ -15,6 +15,11 @@ const CardDetail = () => {
     return umumiySumma;
   };
 
+  const haridYakunlash = () => {
+    alert("Haridingiz Uchun Rahmat !!!");
+    window.location.reload();
+  };
+
   const oraliqSumma = hisoblashJami();
   const yetkazibBerishNarxi = oraliqSumma > 1000 ? 0 : 50;
   const yakuniySumma = oraliqSumma + yetkazibBerishNarxi;
@@ -72,7 +77,7 @@ const CardDetail = () => {
                 <h3>${yakuniySumma}</h3>
               </div>
             </div>
-            <button>XARIDNI YAKUNLASH</button>
+            <button onClick={() => haridYakunlash()}>XARIDNI YAKUNLASH</button>
           </div>
           <div className="cartitems-promocode">
             <p>Agar promo kodingiz bo'lsa, bu yerga kiriting</p>
