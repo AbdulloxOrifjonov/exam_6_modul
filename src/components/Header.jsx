@@ -1,10 +1,13 @@
 /** @format */
 
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { CartContext } from "../context/CartContext";
 
 const Header = () => {
+  const { cart } = useContext(CartContext);
+
   return (
     <div className="ui fixed menu">
       <div className="ui container center">
@@ -15,7 +18,7 @@ const Header = () => {
         <Link to={`cardDetail`}>
           <AiOutlineShoppingCart className="shopCard" />
           <div className="shopCardCount">
-            <p>0</p>
+            <p>{cart.length}</p>
           </div>
         </Link>
       </div>
